@@ -1,0 +1,63 @@
+[0m2021.07.12 13:27:05 INFO  Started: Metals version 0.10.4 in workspace 'C:\Users\brian\Documents\P0' for client Visual Studio Code 1.58.0.[0m
+[0m2021.07.12 13:27:08 INFO  time: initialize in 3.33s[0m
+[0m2021.07.12 13:27:08 WARN  Build server is not auto-connectable.[0m
+[0m2021.07.12 13:27:08 WARN  no build tool detected in workspace 'C:\Users\brian\Documents\P0'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.07.12 13:27:29 WARN  no build target for: C:\Users\brian\Documents\P0\build.sbt[0m
+[0m2021.07.12 13:27:29 WARN  no build target for: C:\Users\brian\Documents\P0\build.sbt[0m
+[0m2021.07.12 13:27:34 INFO  no build target: using presentation compiler with only scala-library: 2.12.14[0m
+[0m2021.07.12 13:27:37 INFO  time: code lens generation in 6.36s[0m
+[0m2021.07.12 13:27:38 INFO  running 'C:\Users\brian\.jabba\jdk\adopt@1.11.0-11\bin\java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -Dsbt.version=1.5.2 -jar C:\Users\brian\AppData\Local\Temp\metals3432981509813387433\sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'[0m
+[0m2021.07.12 13:27:45 INFO  [info] Updated file C:\Users\brian\Documents\P0\project\build.properties: set sbt.version to 1.5.2[0m
+[0m2021.07.12 13:27:45 INFO  [info] welcome to sbt 1.5.2 (AdoptOpenJDK Java 11.0.11)[0m
+[0m2021.07.12 13:27:48 INFO  [info] loading global plugins from C:\Users\brian\.sbt\1.0\plugins[0m
+[0m2021.07.12 13:27:55 INFO  [info] loading settings for project p0-build-build from metals.sbt ...[0m
+[0m2021.07.12 13:27:55 INFO  [info] loading project definition from C:\Users\brian\Documents\P0\project\project[0m
+[0m2021.07.12 13:28:02 INFO  [info] loading settings for project p0-build from metals.sbt ...[0m
+[0m2021.07.12 13:28:02 INFO  [info] loading project definition from C:\Users\brian\Documents\P0\project[0m
+[0m2021.07.12 13:28:13 INFO  [success] Generated .bloop\p0-build.json[0m
+[0m2021.07.12 13:28:13 INFO  [success] Total time: 10 s, completed Jul 12, 2021, 1:28:13 PM[0m
+[0m2021.07.12 13:28:20 INFO  [info] loading settings for project p0 from build.sbt ...[0m
+[0m2021.07.12 13:28:20 INFO  [info] set current project to P0 (in build file:/C:/Users/brian/Documents/P0/)[0m
+[0m2021.07.12 13:28:47 INFO  [success] Generated .bloop\p0.json[0m
+[0m2021.07.12 13:28:47 INFO  [success] Generated .bloop\p0-test.json[0m
+[0m2021.07.12 13:28:47 INFO  [success] Total time: 27 s, completed Jul 12, 2021, 1:28:48 PM[0m
+[0m2021.07.12 13:28:47 INFO  sbt bloopInstall exit: 0[0m
+[0m2021.07.12 13:28:48 INFO  time: ran 'sbt bloopInstall' in 1m9s[0m
+[0m2021.07.12 13:28:48 INFO  Attempting to connect to the build server...[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol tcp --port 42716'...
+Waiting for the bsp connection to come up...
+[0m[32m[D][0m Loading 2 projects from 'c:\Users\brian\Documents\P0\.bloop'...
+[0m[32m[D][0m Loading project from 'c:\Users\brian\Documents\P0\.bloop\p0-test.json'
+[0m[32m[D][0m Loading project from 'c:\Users\brian\Documents\P0\.bloop\p0.json'
+[0m[32m[D][0m Missing analysis file for project 'p0'
+[0m[32m[D][0m Missing analysis file for project 'p0-test'
+[0m[32m[D][0m Waiting for a connection at 127.0.0.1:42716...
+The server is listening for incoming connections at tcp://127.0.0.1:42716...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.07.12 13:28:49 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\brian\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+[0m2021.07.12 13:28:49 INFO  Attempting to connect to the build server...[0m
+Starting the bsp launcher for bloop...
+Opening a bsp server connection with 'bsp --protocol tcp --port 12517'...
+Waiting for the bsp connection to come up...
+[0m[32m[D][0m Loading workspace settings from bloop.settings.json
+[0m[32m[D][0m Waiting for a connection at 127.0.0.1:12517...
+The server is listening for incoming connections at tcp://127.0.0.1:12517...
+Starting thread that pumps stdin and redirects it to the bsp server...
+Starting thread that pumps server stdout and redirects it to the client stdout...
+[0m2021.07.12 13:28:49 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\brian\AppData\Local\scalameta\metals\cache\bsp.trace.json[0m
+[0m2021.07.12 13:28:49 INFO  time: Connected to build server in 1.83s[0m
+[0m2021.07.12 13:28:49 INFO  Connected to Build server: Bloop v1.4.8-19-4d9f966b[0m
+[0m2021.07.12 13:28:50 INFO  time: Imported build in 0.25s[0m
+[0m2021.07.12 13:29:08 INFO  time: indexed workspace in 18s[0m
+[0m2021.07.12 13:29:21 INFO  time: code lens generation in 10s[0m
+[0m2021.07.12 13:29:21 INFO  time: code lens generation in 5.02s[0m
+[0m2021.07.12 13:29:21 INFO  time: code lens generation in 1.56s[0m
+[0m2021.07.12 13:29:23 INFO  shutting down Metals[0m
+[0m2021.07.12 13:29:23 INFO  Shut down connection with build server.[0m
+No more data in the client stdin, exiting...
+No more data in the server stdin, exiting...
+[0m2021.07.12 13:29:23 INFO  Shut down connection with build server.[0m
+No more data in the client stdin, exiting...
+No more data in the server stdin, exiting...
