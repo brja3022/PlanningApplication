@@ -2,6 +2,7 @@ import scala.collection.mutable.ListBuffer
 import java.util.Date
 import java.text.SimpleDateFormat
 import scala.io.StdIn._
+import scala.collection.mutable.Map
 
 class FrontEnd(){
     def main(args: Array[String]): Unit = {
@@ -71,6 +72,18 @@ class Schedule(name: String){
             case default => eventCleared = false
         }
         return eventCleared
+    }
+
+    def frequentLocations(): Map[String,Int] ={
+        var commonLocations = scala.collection.mutable.Map[String,Int]()
+        for (event <- listEvents){
+            if(commonLocations.contains(event.getLocation())){
+                commonLocations(event.getLocation() ) = commonLocations(event.getLocation())+1
+            }else{
+                commonLocations +=(event.getLocation()-> 1)
+            }
+        }
+        return commonLocations
     }
 
 }
