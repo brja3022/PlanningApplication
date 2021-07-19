@@ -4,14 +4,19 @@ import java.text.SimpleDateFormat
 import scala.io.StdIn._
 import scala.collection.mutable.Map
 
-class FrontEnd(){
+object M{
     def main(args: Array[String]): Unit = {
         println("Welcome to Brian's Planning Application")
         val name = readLine("Insert Name")
         val schedule = new Schedule(name)
-        val firstEvent = createEvent(schedule)
-        
-  }
+        val frontEnd = new FrontEnd()
+        val firstEvent = frontEnd.createEvent(schedule)
+
+    }
+}
+
+class FrontEnd(){
+
   def inputDate(): Date = {
       val dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
       val inputDate = readLine("Input Date in format yyyy-MM-dd HH:mm:ss")
@@ -88,12 +93,12 @@ class Schedule(name: String){
 
 }
 
-class Event(title: String, startTime: Date, endTime: Date, location: String, travelTime: Double = 0, schedule: Schedule, frontEnd: FrontEnd){
-    var title = title
-    var startTime = startTime
-    var endTime = endTime
-    var location = location
-    var travelTime = travelTime
+class Event(eventTitle: String, eventStartTime: Date, eventEndTime: Date, eventLocation: String, eventTravelTime: Double = 0, schedule: Schedule, frontEnd: FrontEnd){
+    var title = eventTitle
+    var startTime = eventStartTime
+    var endTime = eventEndTime
+    var location = eventLocation
+    var travelTime = eventTravelTime
 
     def getTitle(): String = return title
     def getStartTime(): Date = return startTime

@@ -200,7 +200,7 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "C:\\Users\\brian\\.jabba\\jdk\\adopt@1.11.0-11",
+                "home": "C:\\Program Files\\AdoptOpenJDK\\jdk-8.0.292.10-hotspot\\jre",
                 "options": [
                     "-Duser.dir=C:\\Users\\brian\\Documents\\P0\\project"
                 ]
