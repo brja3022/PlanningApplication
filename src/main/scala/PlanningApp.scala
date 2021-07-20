@@ -11,15 +11,33 @@ object M{
         println()
         val schedule = new Schedule(name)
         val frontEnd = new FrontEnd()
-        val firstEvent = frontEnd.createEvent(schedule)
-        schedule.addEvent(firstEvent)
-        val secondEvent = frontEnd.createEvent(schedule)
-        schedule.addEvent(secondEvent)
-        schedule.printSchedule()
-        firstEvent.alert()
-        secondEvent.alert()
-        println(schedule.frequentLocations())
-
+        var continue = true
+        do{
+            println("Options: 1. Create event, 2. Remove Event, 3. Reschedule Event, 4. View Schedule, 5. Frequent Locations, 6. Quit Application")
+            val choice  = readInt()
+            choice match{
+                case 1 => {
+                    var event = frontEnd.createEvent(schedule)
+                    schedule.addEvent(event)
+                }
+                case 2 => {
+                    var title = readLine("Event Title ")
+                    var event = schedule.getEventFromTitle(title)
+                    schedule.deleteEvent(event)
+                    println(title + " has been canceled")
+                }
+                case 3 => {
+                    var title = readLine("Event Title ")
+                    var event = schedule.getEventFromTitle(title)
+                    event.reschedule()
+                    println(title + " has been rescheduled")
+                }
+                case 4 => schedule.printSchedule()
+                case 5 => schedule.frequentLocations()
+                case 6 => continue = false
+            }
+            schedule.checkForAlerts()
+        }while(continue)
     }
 }
 
@@ -66,6 +84,7 @@ class Schedule(name: String){
                 if (eventCleared == false) return eventCleared
             }
         }
+
         return eventCleared
     }
 
@@ -84,6 +103,7 @@ class Schedule(name: String){
             case 4 => eventCleared = false
             case default => eventCleared = false
         }
+
         return eventCleared
     }
 
@@ -103,6 +123,22 @@ class Schedule(name: String){
         println(name + "Schedule")
         for (event <- listEvents){
             println(event.getTitle() + " Starts: " + event.getStartTime() + " Ends: " + event.getEndTime() + " Location: " + event.getLocation())
+        }
+    }
+
+    def getEventFromTitle(title: String): Event ={
+        for(event <- listEvents){
+            if (event.getTitle()==title){
+                return event
+            }
+        }
+        return listEvents(0)
+
+    }
+
+    def checkForAlerts(): Unit ={
+        for(event <- listEvents){
+            event.alert()
         }
     }
 
@@ -128,7 +164,10 @@ class Event(eventTitle: String, eventStartTime: Date, eventEndTime: Date, eventL
         print("End Time ")
         endTime = frontEnd.inputDate()
         println
-        return schedule.checkConflicts(this)
+        schedule.deleteEvent(this)
+        val check = schedule.checkConflicts(this)
+        if(check) schedule.addEvent(this)
+        return check
     }
 
     def alert() {
