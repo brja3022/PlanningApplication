@@ -8,6 +8,7 @@ object M{
     def main(args: Array[String]): Unit = {
         println("Welcome to Brian's Planning Application")
         val name = readLine("Insert Name")
+        println()
         val schedule = new Schedule(name)
         val frontEnd = new FrontEnd()
         val firstEvent = frontEnd.createEvent(schedule)
@@ -15,6 +16,9 @@ object M{
         val secondEvent = frontEnd.createEvent(schedule)
         schedule.addEvent(secondEvent)
         schedule.printSchedule()
+        firstEvent.alert()
+        secondEvent.alert()
+        println(schedule.frequentLocations())
 
     }
 }
@@ -34,7 +38,7 @@ class FrontEnd(){
       println("End Date/Time ")
       val end = inputDate()
       val location = readLine("Event Location ")
-      println("Travel Time ")
+      println("Travel Time in minutes ")
       val tt = readDouble()
       return new Event(title,start,end,location,tt,schedule,frontEnd)
   }
@@ -129,9 +133,9 @@ class Event(eventTitle: String, eventStartTime: Date, eventEndTime: Date, eventL
 
     def alert() {
         val current = new Date()
-        val timeToEvent = current.getTime()-getStartTime.getTime()
+        val timeToEvent = ((getStartTime.getTime()-current.getTime())/60000)
         if(timeToEvent < getTravelTime()+5){
-            println(getTitle() + " will start in " + timeToEvent)
+            println(getTitle() + " will start in " + timeToEvent + " minutes")
         }
     }
     
