@@ -11,6 +11,10 @@ object M{
         val schedule = new Schedule(name)
         val frontEnd = new FrontEnd()
         val firstEvent = frontEnd.createEvent(schedule)
+        schedule.addEvent(firstEvent)
+        val secondEvent = frontEnd.createEvent(schedule)
+        schedule.addEvent(secondEvent)
+        schedule.printSchedule()
 
     }
 }
@@ -39,7 +43,7 @@ class FrontEnd(){
 class Schedule(name: String){
     var listEvents = ListBuffer[Event]()
     
-    def addEvent(event: Event) = {
+    def addEvent(event: Event): Unit = {
         val confirmation = checkConflicts(event)
         if(confirmation)(listEvents += event)
         
@@ -89,6 +93,13 @@ class Schedule(name: String){
             }
         }
         return commonLocations
+    }
+
+    def printSchedule(): Unit ={
+        println(name + "Schedule")
+        for (event <- listEvents){
+            println(event.getTitle() + " Starts: " + event.getStartTime() + " Ends: " + event.getEndTime() + " Location: " + event.getLocation())
+        }
     }
 
 }
