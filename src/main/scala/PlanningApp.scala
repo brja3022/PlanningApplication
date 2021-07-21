@@ -33,7 +33,7 @@ object M{
                     println(title + " has been rescheduled")
                 }
                 case 4 => schedule.printSchedule()
-                case 5 => schedule.frequentLocations()
+                case 5 => println(schedule.frequentLocations())
                 case 6 => continue = false
             }
             schedule.checkForAlerts()
@@ -71,7 +71,10 @@ class Schedule(name: String){
         
     }
 
-    def deleteEvent(event: Event) = listEvents-=event
+    def deleteEvent(event: Event): Unit = {
+
+        listEvents-=event
+    }
 
     def checkConflicts(event: Event): Boolean = {
         var eventCleared = true
@@ -127,13 +130,13 @@ class Schedule(name: String){
     }
 
     def getEventFromTitle(title: String): Event ={
+        var returnable = listEvents(0)
         for(event <- listEvents){
-            if (event.getTitle()==title){
-                return event
+            if (event.getTitle().equals(title)){
+                returnable = event
             }
         }
-        return listEvents(0)
-
+        return returnable
     }
 
     def checkForAlerts(): Unit ={
@@ -158,13 +161,13 @@ class Event(eventTitle: String, eventStartTime: Date, eventEndTime: Date, eventL
     def getTravelTime(): Double = return travelTime
 
     def reschedule(): Boolean = {
+        schedule.deleteEvent(this)
         print("Start Time ")
         startTime = frontEnd.inputDate()
         println()
         print("End Time ")
         endTime = frontEnd.inputDate()
         println
-        schedule.deleteEvent(this)
         val check = schedule.checkConflicts(this)
         if(check) schedule.addEvent(this)
         return check
@@ -173,7 +176,8 @@ class Event(eventTitle: String, eventStartTime: Date, eventEndTime: Date, eventL
     def alert() {
         val current = new Date()
         val timeToEvent = ((getStartTime.getTime()-current.getTime())/60000)
-        if(timeToEvent < getTravelTime()+5){
+        val hasEnded = (getEndTime().before(current))
+        if(timeToEvent < getTravelTime()+5 & !hasEnded){
             println(getTitle() + " will start in " + timeToEvent + " minutes")
         }
     }
